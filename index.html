@@ -1,160 +1,769 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>First Name Last Name</title> <!--TODO: This is the display on the tab -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
- 
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Bo Li — computational and theoretical chemist working at the intersection of molecular simulation, statistical mechanics, machine learning, and AI for molecular and materials discovery."
+  />
+  <title>Bo Li | Computational Chemistry & AI for Science</title>
+
   <style>
-    
+    :root {
+      --bg: #f7f8fa;
+      --surface: #ffffff;
+      --text: #18212f;
+      --muted: #5f6b7a;
+      --line: #e5e9ef;
+      --accent: #234f84;
+      --accent-soft: #eaf1f8;
+      --max-width: 1120px;
+      --shadow: 0 10px 30px rgba(28, 44, 64, 0.07);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      padding: 0;
-      background-color: #f0f0f0; /* OPTIONAL: This is the background color (currently light grey) */
-      font-family: 'Century Gothic', sans-serif; /* OPTIONAL: This is the font  */
-      color: #333;
+      font-family:
+        Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.65;
     }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--max-width));
+      margin: 0 auto;
+    }
+
     header {
-      background-color: #2ecc71; /* OPTIONAL: This is the header background color (currently green) */
-      color: white;
-      padding: 20px;
-      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247, 248, 250, 0.92);
+      border-bottom: 1px solid rgba(229, 233, 239, 0.9);
+      backdrop-filter: blur(12px);
     }
-    .linkedin-icon {
-      color: white;
-      font-size: 28px;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-    .linkedin-icon:hover {
-      color: #d1f0e0; /* lighter green on hover */
-    }
+
     nav {
-      margin-top: 10px;
-      text-align: center;
-    }
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #2ecc71; /* OPTIONAL: This is the navigation banner text color (currently green) */
-      font-weight: bold;
-    }
-    section {
-      max-width: 900px;
-      margin: 30px auto;
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    }
-    h2 {
-      color: #2ecc71; /* OPTIONAL: This is the section header text color (currently green) */
-      border-bottom: 2px solid #2ecc71;
-      padding-bottom: 5px;
-    }
-    p {
-      line-height: 1.6;
-    }
-    .project {
+      min-height: 68px;
       display: flex;
       align-items: center;
-      margin-bottom: 30px;
-      gap: 20px;
+      justify-content: space-between;
+      gap: 1.5rem;
     }
-    .project img {
-      width: 200px;
-      height: auto;
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      font-size: 1.05rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.94rem;
+      font-weight: 600;
+    }
+
+    .hero {
+      padding: 6.5rem 0 5.5rem;
+      background:
+        radial-gradient(circle at 80% 10%, rgba(35, 79, 132, 0.10), transparent 28%),
+        linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(270px, 0.6fr);
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 0.9rem;
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 850px;
+      font-size: clamp(2.8rem, 7vw, 5.6rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .hero h2 {
+      margin: 1.4rem 0 0;
+      max-width: 850px;
+      font-size: clamp(1.15rem, 2.5vw, 1.6rem);
+      line-height: 1.35;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .hero-copy {
+      max-width: 800px;
+      margin-top: 1.5rem;
+      font-size: 1.05rem;
+      color: #3d4957;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      margin-top: 2rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0.72rem 1.05rem;
+      border-radius: 9px;
+      border: 1px solid var(--accent);
+      font-weight: 700;
+      font-size: 0.94rem;
+      transition: 0.2s ease;
+    }
+
+    .button.primary {
+      color: #fff;
+      background: var(--accent);
+    }
+
+    .button.secondary {
+      color: var(--accent);
+      background: transparent;
+    }
+
+    .button:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(35, 79, 132, 0.14);
+    }
+
+    .profile-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 1.6rem;
+      box-shadow: var(--shadow);
+    }
+
+    .profile-placeholder {
+      aspect-ratio: 1 / 1;
+      width: 100%;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      background:
+        linear-gradient(145deg, rgba(35,79,132,.96), rgba(35,79,132,.62)),
+        #234f84;
+      color: white;
+      font-size: 4.2rem;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+    }
+
+    .profile-meta {
+      margin-top: 1.25rem;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    main section {
+      padding: 5rem 0;
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 2.2rem;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+      letter-spacing: -0.035em;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      margin: 0.8rem 0 0;
+      font-size: 1.02rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 1.5rem;
+      box-shadow: 0 5px 20px rgba(28, 44, 64, 0.035);
+    }
+
+    .card h3 {
+      margin: 0 0 0.65rem;
+      font-size: 1.08rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 0.85rem;
+      padding: 0.24rem 0.6rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 800;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 1.5rem;
+      padding: 1.25rem 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .timeline-item:first-child {
+      border-top: 0;
+    }
+
+    .timeline-date {
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .timeline-item h3 {
+      margin: 0;
+      font-size: 1.06rem;
+    }
+
+    .timeline-item p {
+      margin: 0.35rem 0 0;
+      color: var(--muted);
+    }
+
+    .publication {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 1rem;
+      padding: 1.15rem 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .publication:first-child {
+      border-top: 0;
+    }
+
+    .pub-year {
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .publication h3 {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.45;
+    }
+
+    .publication p {
+      margin: 0.35rem 0 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+    }
+
+    .skill {
+      padding: 0.42rem 0.68rem;
       border-radius: 8px;
-      object-fit: cover;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      background: #fff;
+      border: 1px solid var(--line);
+      color: #3e4a59;
+      font-size: 0.9rem;
+      font-weight: 600;
     }
-    .project-text {
-      flex: 1;
+
+    .contact-panel {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2rem;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
     }
+
+    .contact-panel h3 {
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 0.65rem;
+      align-content: start;
+    }
+
     footer {
-      text-align: center;
-      padding: 15px;
-      margin-top: 30px;
-      color: #777;
-      font-size: 0.9em;
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      font-size: 0.9rem;
     }
-    @media (max-width: 600px) {
-      .project {
-        flex-direction: column;
-        align-items: flex-start;
+
+    @media (max-width: 850px) {
+      .hero {
+        padding-top: 4.5rem;
       }
-      .project img {
-        width: 100%;
+
+      .hero-grid,
+      .contact-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-card {
+        max-width: 380px;
+      }
+
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 0.35rem;
+      }
+    }
+
+    @media (max-width: 680px) {
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 0.9rem 0;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+        gap: 0.9rem;
+      }
+
+      .hero {
+        padding: 3.7rem 0 4rem;
+      }
+
+      main section {
+        padding: 3.8rem 0;
+      }
+
+      .publication {
+        grid-template-columns: 1fr;
+        gap: 0.25rem;
       }
     }
   </style>
 </head>
 
 <body>
+  <header>
+    <div class="container">
+      <nav aria-label="Primary navigation">
+        <a class="brand" href="#top">Bo Li</a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#research">Research</a>
+          <a href="#publications">Publications</a>
+          <a href="#experience">Experience</a>
+          <a href="#teaching">Teaching</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
 
-<header>
-  <h1>First Name Last Name</h1> <!--TODO: Website Header at top of page -->
-  <p>youremail@place.com <!--TODO: Change to be your email (perferably personal email)  -->
-  <a class="linkedin-icon" href="https://www.linkedin.com/in/nancy-newlin/" target="_blank" rel="noopener noreferrer"><!--TODO: Change to be your linkedin -->
-  <i class="fab fa-linkedin"></i>
-  </a>
-  </p>
-</header>
+  <div id="top" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">Computational Chemistry · Molecular Simulation · AI for Science</p>
+        <h1>Bo Li</h1>
+        <h2>
+          Computational and theoretical chemist developing physics-based and
+          machine-learning approaches for molecular and materials discovery.
+        </h2>
+        <p class="hero-copy">
+          My research combines quantum chemistry, statistical mechanics,
+          molecular simulation, machine learning, and generative AI to understand
+          and design complex chemical systems, with particular interests in ionic
+          liquids, molten salts, disordered ionic materials, solution
+          thermodynamics, and data-driven molecular discovery.
+        </p>
 
-<nav>
-  <a href="#about">About Me</a>
-  <a href="#projects">Projects</a>
-  <a href="#hobbies">Hobbies</a>
-</nav>
+        <div class="buttons">
+          <a class="button primary" href="#research">Explore my research</a>
+          <a class="button secondary" href="#contact">Contact me</a>
+          <!-- Replace the URL below with the path to your CV PDF -->
+          <a class="button secondary" href="Bo_Li_CV.pdf">CV</a>
+        </div>
+      </div>
 
-<section id="about">
-  <h2>About Me</h2> <!--TODO: Write a few sentences about you! What year are you? What department? What is your focus area? Are you looking for a job/internship? -->
-  <p>Hello! I'm a passionate and driven individual who loves blending creativity with technology. With a background in [Your Field], I enjoy building impactful solutions and telling stories through data and design.</p>
-</section>
-
-<section id="projects">
-  <h2>Projects</h2>
-
-  <div class="project">
-    <img src="Image1.jpg" alt="Project 1">
-    <div class="project-text">
-      <h3>Project One</h3> <!--TODO: Project title -->
-      <p>This is a super cool project!!! I did xyz and learned xyz </p><!--TODO: Project description -->
+      <aside class="profile-card" aria-label="Profile">
+        <!-- Replace this block with:
+        <img src="profile.jpg" alt="Bo Li" style="width:100%;border-radius:15px;display:block;">
+        -->
+        <div class="profile-placeholder" aria-hidden="true">BL</div>
+        <div class="profile-meta">
+          <strong>Research Assistant Professor</strong><br />
+          Chemical &amp; Biomolecular Engineering<br />
+          Vanderbilt University<br />
+          Nashville, Tennessee
+        </div>
+      </aside>
     </div>
   </div>
 
-  <div class="project">
-    <img src="Image1.jpg" alt="Project 2">
-    <div class="project-text">
-      <h3>Project One</h3> <!--TODO: Project title -->
-      <p>This is a super cool project!!! I did xyz and learned xyz </p><!--TODO: Project description -->
+  <main>
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">About</p>
+          <h2>Connecting molecular-scale physics with data-driven discovery.</h2>
+          <p>
+            I work across computational chemistry, molecular simulation, and
+            scientific machine learning. My goal is to develop predictive and
+            interpretable computational methods that accelerate the understanding
+            and design of chemically complex systems.
+          </p>
+        </div>
+
+        <div class="skills">
+          <span class="skill">Density Functional Theory</span>
+          <span class="skill">Ab Initio Molecular Dynamics</span>
+          <span class="skill">Statistical Mechanics</span>
+          <span class="skill">Machine-Learned Potentials</span>
+          <span class="skill">Generative AI</span>
+          <span class="skill">Molecular Property Prediction</span>
+          <span class="skill">CP2K</span>
+          <span class="skill">DeePMD</span>
+          <span class="skill">Chemprop</span>
+          <span class="skill">Python</span>
+          <span class="skill">HPC / SLURM</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Research</p>
+          <h2>Current research directions</h2>
+          <p>
+            My research program centers on three complementary directions that
+            connect fundamental physical chemistry with modern AI.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <span class="tag">Research I</span>
+            <h3>Hybrid ML Potentials for Solution Thermodynamics</h3>
+            <p>
+              Combining electronic-structure theory, molecular simulation, and
+              machine learning to predict solvation, reaction, and transport
+              properties in chemically complex liquid environments.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="tag">Research II</span>
+            <h3>Physics-Informed Universal Potentials</h3>
+            <p>
+              Developing transferable machine-learned interatomic potentials for
+              disordered ionic systems, including molten salts, glasses, and
+              solid-state ionic materials.
+            </p>
+          </article>
+
+          <article class="card">
+            <span class="tag">Research III</span>
+            <h3>Generative AI for Inverse Molecular Design</h3>
+            <p>
+              Integrating property prediction, chemical reactivity models, and
+              generative molecular representations to discover molecules with
+              targeted thermodynamic and chemical properties.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Selected Publications</p>
+          <h2>Recent work</h2>
+          <p>
+            A few representative projects spanning molecular simulation,
+            transport, reactive capture, and AI-assisted molecular discovery.
+          </p>
+        </div>
+
+        <div class="publication">
+          <div class="pub-year">2024</div>
+          <div>
+            <h3>
+              Molecular-level understanding of CO₂ capture in reactive ionic
+              liquids
+            </h3>
+            <p>
+              Journal of the American Chemical Society. Add full citation, DOI,
+              and coauthor information here.
+            </p>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-year">2023</div>
+          <div>
+            <h3>
+              Mechanistic understanding of Li-ion transport in amorphous chloride
+              electrolytes
+            </h3>
+            <p>
+              Angewandte Chemie International Edition. Add full citation, DOI,
+              and coauthor information here.
+            </p>
+          </div>
+        </div>
+
+        <div class="publication">
+          <div class="pub-year">2026</div>
+          <div>
+            <h3>
+              Discovering CO₂-reactive carbanions via property-guided generative AI
+            </h3>
+            <p>
+              Generative molecular design coupled with property prediction and
+              reactivity screening. Update with final publication information.
+            </p>
+          </div>
+        </div>
+
+        <p style="margin-top: 1.5rem;">
+          <!-- Replace the URL below with your Google Scholar profile -->
+          <a href="https://scholar.google.com/" target="_blank" rel="noopener">
+            View full publication list on Google Scholar →
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Experience</p>
+          <h2>Academic background</h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-date">2023 – Present</div>
+            <div>
+              <h3>Research Assistant Professor · Vanderbilt University</h3>
+              <p>
+                Department of Chemical &amp; Biomolecular Engineering.
+                Computational chemistry, molecular simulation, machine learning,
+                AI for chemistry, and scientific computing.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">2020 – 2023</div>
+            <div>
+              <h3>Postdoctoral Researcher · Los Alamos National Laboratory</h3>
+              <p>
+                Computational modeling and simulation of chemical and materials systems.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">2016 – 2020</div>
+            <div>
+              <h3>Postdoctoral Researcher · University of California, Riverside</h3>
+              <p>
+                Theoretical and computational chemistry, molecular simulation,
+                and chemical thermodynamics.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">Ph.D. 2015</div>
+            <div>
+              <h3>Ph.D. in Theoretical Chemistry · Technical University of Munich</h3>
+              <p>
+                Doctoral advisor: Prof. Notker Rösch.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="teaching">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Teaching & Mentoring</p>
+          <h2>Training students to connect theory, computation, and chemistry.</h2>
+          <p>
+            My teaching interests include general chemistry, physical chemistry,
+            computational chemistry, thermodynamics, kinetics, transport,
+            scientific programming, and modern data-driven methods for chemistry
+            and materials science.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <h3>Physical & Computational Chemistry</h3>
+            <p>
+              Quantum chemistry, statistical mechanics, molecular simulation,
+              thermodynamics, and electronic-structure methods.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Chemical Engineering</h3>
+            <p>
+              Thermodynamics, kinetics, transport, numerical methods, and
+              computational modeling for chemical systems.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Scientific Computing & AI</h3>
+            <p>
+              Python, HPC, reproducible workflows, machine learning, and practical
+              AI tools for scientific research.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <div>
+            <p class="eyebrow">Contact</p>
+            <h3>Interested in research, collaboration, or scientific computing?</h3>
+            <p style="color: var(--muted); margin-bottom: 0;">
+              I am interested in collaborations at the intersection of molecular
+              simulation, statistical mechanics, chemical AI, and materials
+              discovery.
+            </p>
+          </div>
+
+          <div class="contact-list">
+            <div>
+              <strong>Email</strong><br />
+              <a href="mailto:bo.li.2@vanderbilt.edu">bo.li.2@vanderbilt.edu</a>
+            </div>
+
+            <div>
+              <strong>GitHub</strong><br />
+              <!-- Replace YOUR_GITHUB_USERNAME -->
+              <a
+                href="https://github.com/YOUR_GITHUB_USERNAME"
+                target="_blank"
+                rel="noopener"
+              >
+                github.com/YOUR_GITHUB_USERNAME
+              </a>
+            </div>
+
+            <div>
+              <strong>Google Scholar</strong><br />
+              <!-- Replace with your actual Scholar URL -->
+              <a href="https://scholar.google.com/" target="_blank" rel="noopener">
+                Scholar profile
+              </a>
+            </div>
+
+            <div>
+              <strong>Location</strong><br />
+              Vanderbilt University · Nashville, TN
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Bo Li. Built for GitHub Pages.
     </div>
-  </div>
-  
-  <div class="project">
-    <img src="Image1.jpg" alt="Project 3">
-    <div class="project-text">
-      <h3>Project One</h3> <!--TODO: Project title -->
-      <p>This is a super cool project!!! I did xyz and learned xyz </p><!--TODO: Project description -->
-    </div>
-  </div>
+  </footer>
 
-</section>
-
-<section id="hobbies">
-  <h2>Hobbies</h2>
-  <p>Outside of work, you can find me:</p> <!--TODO: Hobbies (will appear as a bulletted list-->
-  <ul>
-    <li>Exploring hiking trails and enjoying nature</li>
-    <li>Experimenting with digital art and animation</li>
-    <li>Playing board games and trivia nights with friends</li>
-  </ul>
-</section>
-
-<footer>
-  &copy; 2025 First Name Last Name. All Rights Reserved. <!--TODO: Change to your name -->
-</footer>
-
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
