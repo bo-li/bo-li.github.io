@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>First Name Last Name</title> <!--TODO: This is the display on the tab -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+ 
+  <style>
+    
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0; /* OPTIONAL: This is the background color (currently light grey) */
+      font-family: 'Century Gothic', sans-serif; /* OPTIONAL: This is the font  */
+      color: #333;
+    }
+    header {
+      background-color: #2ecc71; /* OPTIONAL: This is the header background color (currently green) */
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    .linkedin-icon {
+      color: white;
+      font-size: 28px;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .linkedin-icon:hover {
+      color: #d1f0e0; /* lighter green on hover */
+    }
+    nav {
+      margin-top: 10px;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #2ecc71; /* OPTIONAL: This is the navigation banner text color (currently green) */
+      font-weight: bold;
+    }
+    section {
+      max-width: 900px;
+      margin: 30px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      color: #2ecc71; /* OPTIONAL: This is the section header text color (currently green) */
+      border-bottom: 2px solid #2ecc71;
+      padding-bottom: 5px;
+    }
+    p {
+      line-height: 1.6;
+    }
+    .project {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+      gap: 20px;
+    }
+    .project img {
+      width: 200px;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .project-text {
+      flex: 1;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+      color: #777;
+      font-size: 0.9em;
+    }
+    @media (max-width: 600px) {
+      .project {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .project img {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>First Name Last Name</h1> <!--TODO: Website Header at top of page -->
+  <p>youremail@place.com <!--TODO: Change to be your email (perferably personal email)  -->
+  <a class="linkedin-icon" href="https://www.linkedin.com/in/nancy-newlin/" target="_blank" rel="noopener noreferrer"><!--TODO: Change to be your linkedin -->
+  <i class="fab fa-linkedin"></i>
+  </a>
+  </p>
+</header>
+
+<nav>
+  <a href="#about">About Me</a>
+  <a href="#projects">Projects</a>
+  <a href="#hobbies">Hobbies</a>
+</nav>
+
+<section id="about">
+  <h2>About Me</h2> <!--TODO: Write a few sentences about you! What year are you? What department? What is your focus area? Are you looking for a job/internship? -->
+  <p>Hello! I'm a passionate and driven individual who loves blending creativity with technology. With a background in [Your Field], I enjoy building impactful solutions and telling stories through data and design.</p>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+
+  <div class="project">
+    <img src="Image1.jpg" alt="Project 1">
+    <div class="project-text">
+      <h3>Project One</h3> <!--TODO: Project title -->
+      <p>This is a super cool project!!! I did xyz and learned xyz </p><!--TODO: Project description -->
+    </div>
+  </div>
+
+  <div class="project">
+    <img src="Image1.jpg" alt="Project 2">
+    <div class="project-text">
+      <h3>Project One</h3> <!--TODO: Project title -->
+      <p>This is a super cool project!!! I did xyz and learned xyz </p><!--TODO: Project description -->
+    </div>
+  </div>
+  
+  <div class="project">
+    <img src="Image1.jpg" alt="Project 3">
+    <div class="project-text">
+      <h3>Project One</h3> <!--TODO: Project title -->
+      <p>This is a super cool project!!! I did xyz and learned xyz </p><!--TODO: Project description -->
+    </div>
+  </div>
+
+</section>
+
+<section id="hobbies">
+  <h2>Hobbies</h2>
+  <p>Outside of work, you can find me:</p> <!--TODO: Hobbies (will appear as a bulletted list-->
+  <ul>
+    <li>Exploring hiking trails and enjoying nature</li>
+    <li>Experimenting with digital art and animation</li>
+    <li>Playing board games and trivia nights with friends</li>
+  </ul>
+</section>
+
+<footer>
+  &copy; 2025 First Name Last Name. All Rights Reserved. <!--TODO: Change to your name -->
+</footer>
+
+</body>
+</html>
