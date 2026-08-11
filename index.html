@@ -22,32 +22,19 @@
       --shadow: 0 10px 30px rgba(28, 44, 64, 0.07);
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      font-family:
-        Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--text);
       background: var(--bg);
       line-height: 1.65;
     }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
 
     .container {
       width: min(calc(100% - 2rem), var(--max-width));
@@ -159,15 +146,8 @@
       transition: 0.2s ease;
     }
 
-    .button.primary {
-      color: #fff;
-      background: var(--accent);
-    }
-
-    .button.secondary {
-      color: var(--accent);
-      background: transparent;
-    }
+    .button.primary { color: #fff; background: var(--accent); }
+    .button.secondary { color: var(--accent); background: transparent; }
 
     .button:hover {
       text-decoration: none;
@@ -189,9 +169,7 @@
       border-radius: 15px;
       display: grid;
       place-items: center;
-      background:
-        linear-gradient(145deg, rgba(35,79,132,.96), rgba(35,79,132,.62)),
-        #234f84;
+      background: linear-gradient(145deg, rgba(35,79,132,.96), rgba(35,79,132,.62)), #234f84;
       color: white;
       font-size: 4.2rem;
       font-weight: 800;
@@ -204,9 +182,7 @@
       font-size: 0.94rem;
     }
 
-    main section {
-      padding: 5rem 0;
-    }
+    main section { padding: 5rem 0; }
 
     .section-heading {
       max-width: 760px;
@@ -240,15 +216,8 @@
       box-shadow: 0 5px 20px rgba(28, 44, 64, 0.035);
     }
 
-    .card h3 {
-      margin: 0 0 0.65rem;
-      font-size: 1.08rem;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--muted);
-    }
+    .card h3 { margin: 0 0 0.65rem; font-size: 1.08rem; }
+    .card p { margin: 0; color: var(--muted); }
 
     .tag {
       display: inline-block;
@@ -261,10 +230,7 @@
       font-weight: 800;
     }
 
-    .timeline {
-      display: grid;
-      gap: 1rem;
-    }
+    .timeline { display: grid; gap: 1rem; }
 
     .timeline-item {
       display: grid;
@@ -274,9 +240,7 @@
       border-top: 1px solid var(--line);
     }
 
-    .timeline-item:first-child {
-      border-top: 0;
-    }
+    .timeline-item:first-child { border-top: 0; }
 
     .timeline-date {
       color: var(--muted);
@@ -284,15 +248,8 @@
       font-size: 0.9rem;
     }
 
-    .timeline-item h3 {
-      margin: 0;
-      font-size: 1.06rem;
-    }
-
-    .timeline-item p {
-      margin: 0.35rem 0 0;
-      color: var(--muted);
-    }
+    .timeline-item h3 { margin: 0; font-size: 1.06rem; }
+    .timeline-item p { margin: 0.35rem 0 0; color: var(--muted); }
 
     .publication {
       display: grid;
@@ -302,14 +259,8 @@
       border-top: 1px solid var(--line);
     }
 
-    .publication:first-child {
-      border-top: 0;
-    }
-
-    .pub-year {
-      color: var(--accent);
-      font-weight: 800;
-    }
+    .publication:first-child { border-top: 0; }
+    .pub-year { color: var(--accent); font-weight: 800; }
 
     .publication h3 {
       margin: 0;
@@ -350,10 +301,7 @@
       box-shadow: var(--shadow);
     }
 
-    .contact-panel h3 {
-      margin-top: 0;
-      font-size: 1.5rem;
-    }
+    .contact-panel h3 { margin-top: 0; font-size: 1.5rem; }
 
     .contact-list {
       display: grid;
@@ -368,53 +316,19 @@
     }
 
     @media (max-width: 850px) {
-      .hero {
-        padding-top: 4.5rem;
-      }
-
-      .hero-grid,
-      .contact-panel {
-        grid-template-columns: 1fr;
-      }
-
-      .profile-card {
-        max-width: 380px;
-      }
-
-      .grid-3 {
-        grid-template-columns: 1fr;
-      }
-
-      .timeline-item {
-        grid-template-columns: 1fr;
-        gap: 0.35rem;
-      }
+      .hero { padding-top: 4.5rem; }
+      .hero-grid, .contact-panel { grid-template-columns: 1fr; }
+      .profile-card { max-width: 380px; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .timeline-item { grid-template-columns: 1fr; gap: 0.35rem; }
     }
 
     @media (max-width: 680px) {
-      nav {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 0.9rem 0;
-      }
-
-      .nav-links {
-        justify-content: flex-start;
-        gap: 0.9rem;
-      }
-
-      .hero {
-        padding: 3.7rem 0 4rem;
-      }
-
-      main section {
-        padding: 3.8rem 0;
-      }
-
-      .publication {
-        grid-template-columns: 1fr;
-        gap: 0.25rem;
-      }
+      nav { align-items: flex-start; flex-direction: column; padding: 0.9rem 0; }
+      .nav-links { justify-content: flex-start; gap: 0.9rem; }
+      .hero { padding: 3.7rem 0 4rem; }
+      main section { padding: 3.8rem 0; }
+      .publication { grid-template-columns: 1fr; gap: 0.25rem; }
     }
   </style>
 </head>
@@ -456,15 +370,13 @@
         <div class="buttons">
           <a class="button primary" href="#research">Explore my research</a>
           <a class="button secondary" href="#contact">Contact me</a>
-          <!-- Replace the URL below with the path to your CV PDF -->
+          <!-- Upload Bo_Li_CV.pdf to the repository root to enable this link. -->
           <a class="button secondary" href="Bo_Li_CV.pdf">CV</a>
         </div>
       </div>
 
       <aside class="profile-card" aria-label="Profile">
-        <!-- Replace this block with:
-        <img src="profile.jpg" alt="Bo Li" style="width:100%;border-radius:15px;display:block;">
-        -->
+        <!-- Replace this block with a profile photo when desired. -->
         <div class="profile-placeholder" aria-hidden="true">BL</div>
         <div class="profile-meta">
           <strong>Research Assistant Professor</strong><br />
@@ -565,10 +477,7 @@
         <div class="publication">
           <div class="pub-year">2024</div>
           <div>
-            <h3>
-              Molecular-level understanding of CO₂ capture in reactive ionic
-              liquids
-            </h3>
+            <h3>Molecular-level understanding of CO₂ capture in reactive ionic liquids</h3>
             <p>
               Journal of the American Chemical Society. Add full citation, DOI,
               and coauthor information here.
@@ -579,10 +488,7 @@
         <div class="publication">
           <div class="pub-year">2023</div>
           <div>
-            <h3>
-              Mechanistic understanding of Li-ion transport in amorphous chloride
-              electrolytes
-            </h3>
+            <h3>Mechanistic understanding of Li-ion transport in amorphous chloride electrolytes</h3>
             <p>
               Angewandte Chemie International Edition. Add full citation, DOI,
               and coauthor information here.
@@ -593,9 +499,7 @@
         <div class="publication">
           <div class="pub-year">2026</div>
           <div>
-            <h3>
-              Discovering CO₂-reactive carbanions via property-guided generative AI
-            </h3>
+            <h3>Discovering CO₂-reactive carbanions via property-guided generative AI</h3>
             <p>
               Generative molecular design coupled with property prediction and
               reactivity screening. Update with final publication information.
@@ -604,8 +508,11 @@
         </div>
 
         <p style="margin-top: 1.5rem;">
-          <!-- Replace the URL below with your Google Scholar profile -->
-          <a href="https://scholar.google.com/" target="_blank" rel="noopener">
+          <a
+            href="https://scholar.google.com/citations?hl=en&amp;user=g8bfBFUAAAAJ&amp;view_op=list_works&amp;sortby=pubdate"
+            target="_blank"
+            rel="noopener"
+          >
             View full publication list on Google Scholar →
           </a>
         </p>
@@ -636,9 +543,7 @@
             <div class="timeline-date">2020 – 2023</div>
             <div>
               <h3>Postdoctoral Researcher · Los Alamos National Laboratory</h3>
-              <p>
-                Computational modeling and simulation of chemical and materials systems.
-              </p>
+              <p>Computational modeling and simulation of chemical and materials systems.</p>
             </div>
           </div>
 
@@ -657,9 +562,7 @@
             <div class="timeline-date">Ph.D. 2015</div>
             <div>
               <h3>Ph.D. in Theoretical Chemistry · Technical University of Munich</h3>
-              <p>
-                Doctoral advisor: Prof. Notker Rösch.
-              </p>
+              <p>Doctoral advisor: Prof. Notker Rösch.</p>
             </div>
           </div>
         </div>
@@ -669,7 +572,7 @@
     <section id="teaching">
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow">Teaching & Mentoring</p>
+          <p class="eyebrow">Teaching &amp; Mentoring</p>
           <h2>Training students to connect theory, computation, and chemistry.</h2>
           <p>
             My teaching interests include general chemistry, physical chemistry,
@@ -681,7 +584,7 @@
 
         <div class="grid-3">
           <article class="card">
-            <h3>Physical & Computational Chemistry</h3>
+            <h3>Physical &amp; Computational Chemistry</h3>
             <p>
               Quantum chemistry, statistical mechanics, molecular simulation,
               thermodynamics, and electronic-structure methods.
@@ -697,7 +600,7 @@
           </article>
 
           <article class="card">
-            <h3>Scientific Computing & AI</h3>
+            <h3>Scientific Computing &amp; AI</h3>
             <p>
               Python, HPC, reproducible workflows, machine learning, and practical
               AI tools for scientific research.
@@ -715,8 +618,7 @@
             <h3>Interested in research, collaboration, or scientific computing?</h3>
             <p style="color: var(--muted); margin-bottom: 0;">
               I am interested in collaborations at the intersection of molecular
-              simulation, statistical mechanics, chemical AI, and materials
-              discovery.
+              simulation, statistical mechanics, chemical AI, and materials discovery.
             </p>
           </div>
 
@@ -728,20 +630,18 @@
 
             <div>
               <strong>GitHub</strong><br />
-              <!-- Replace YOUR_GITHUB_USERNAME -->
-              <a
-                href="https://github.com/YOUR_GITHUB_USERNAME"
-                target="_blank"
-                rel="noopener"
-              >
-                github.com/YOUR_GITHUB_USERNAME
+              <a href="https://github.com/bo-li" target="_blank" rel="noopener">
+                github.com/bo-li
               </a>
             </div>
 
             <div>
               <strong>Google Scholar</strong><br />
-              <!-- Replace with your actual Scholar URL -->
-              <a href="https://scholar.google.com/" target="_blank" rel="noopener">
+              <a
+                href="https://scholar.google.com/citations?hl=en&amp;user=g8bfBFUAAAAJ&amp;view_op=list_works&amp;sortby=pubdate"
+                target="_blank"
+                rel="noopener"
+              >
                 Scholar profile
               </a>
             </div>
