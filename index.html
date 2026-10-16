@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Bo Li — computational and theoretical chemist working at the intersection of molecular simulation, statistical mechanics, machine learning, and AI for molecular and materials discovery."
+      content="Bo Li — computational chemist connecting molecular interactions to separation, reaction, and transport: rare-earth and f-element separation, reactive CO₂ capture, and ion transport in molten salts and solid electrolytes."
     />
-    <title>Bo Li | Computational Chemistry & AI for Science</title>
+    <title>Bo Li | Computational Chemistry for Separations & Energy</title>
     <style>
       :root {
         --bg: #f7f8fa;
@@ -184,6 +184,10 @@
       main section {
         padding: 5rem 0;
       }
+      main section,
+      .theme {
+        scroll-margin-top: 68px;
+      }
       .section-heading {
         max-width: 760px;
         margin-bottom: 2.2rem;
@@ -219,16 +223,270 @@
         margin: 0;
         color: var(--muted);
       }
-      .tag {
-        display: inline-block;
-        margin-bottom: 0.85rem;
-        padding: 0.24rem 0.6rem;
+
+      /* Research showcase: one .theme block per direction, each with its own accent. */
+      .theme-nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-top: 1.4rem;
+      }
+      .theme-nav a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.45rem 0.85rem;
         border-radius: 999px;
-        background: var(--accent-soft);
-        color: var(--accent);
-        font-size: 0.78rem;
+        border: 1px solid var(--line);
+        background: var(--surface);
+        color: var(--text);
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
+      .theme-nav a::before {
+        content: "";
+        width: 0.6rem;
+        height: 0.6rem;
+        border-radius: 50%;
+        background: var(--theme);
+      }
+      .theme-nav a:hover {
+        text-decoration: none;
+        border-color: var(--theme);
+      }
+      .theme-ree {
+        --theme: #128a88;
+        --theme-ink: #0d6866;
+        --theme-soft: #e5f4f1;
+      }
+      .theme-co2 {
+        --theme: #d66c38;
+        --theme-ink: #a54d1f;
+        --theme-soft: #fbede2;
+      }
+      .theme-ionic {
+        --theme: #3979ab;
+        --theme-ink: #2b5f88;
+        --theme-soft: #e7f0f7;
+      }
+      .theme {
+        margin-top: 3.5rem;
+        padding-top: 2.5rem;
+        border-top: 1px solid var(--line);
+      }
+      .theme-header {
+        display: grid;
+        grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+        gap: 2rem;
+        align-items: end;
+        margin-bottom: 1.6rem;
+      }
+      .theme-label {
+        margin: 0 0 0.5rem;
+        color: var(--theme-ink);
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .theme-header h3 {
+        margin: 0;
+        font-size: clamp(1.5rem, 3vw, 2.1rem);
+        line-height: 1.15;
+        letter-spacing: -0.03em;
+      }
+      .theme-header > p {
+        margin: 0;
+        color: var(--muted);
+      }
+      .result-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.2rem;
+      }
+      .result-card {
+        display: flex;
+        flex-direction: column;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-top: 3px solid var(--theme);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(28, 44, 64, 0.035);
+      }
+      .result-card.feature {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      }
+      .result-figure {
+        margin: 0;
+        background: #fff;
+        border-bottom: 1px solid var(--line);
+      }
+      .result-card.feature .result-figure {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border-bottom: 0;
+        border-right: 1px solid var(--line);
+      }
+      .zoom {
+        display: block;
+        width: 100%;
+        padding: 0;
+        border: 0;
+        background: none;
+        cursor: zoom-in;
+      }
+      .zoom img {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 10;
+        object-fit: contain;
+        padding: 0.75rem;
+      }
+      .result-card.feature .zoom img {
+        aspect-ratio: auto;
+      }
+      .result-figure figcaption {
+        padding: 0 0.9rem 0.7rem;
+        color: var(--muted);
+        font-size: 0.76rem;
+        line-height: 1.45;
+      }
+      .glyph {
+        display: grid;
+        place-items: center;
+        aspect-ratio: 16 / 10;
+        background:
+          radial-gradient(circle at 28% 25%, rgba(255, 255, 255, 0.85), transparent 55%),
+          var(--theme-soft);
+        color: var(--theme-ink);
+        font-size: clamp(2rem, 4vw, 2.7rem);
+        font-weight: 800;
+        letter-spacing: -0.03em;
+      }
+      .result-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        padding: 1.25rem 1.35rem 1.4rem;
+      }
+      .result-card.feature .result-body {
+        justify-content: center;
+        padding: 1.6rem 1.7rem;
+      }
+      .badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem;
+      }
+      .badge {
+        padding: 0.18rem 0.55rem;
+        border-radius: 999px;
+        background: var(--theme-soft);
+        color: var(--theme-ink);
+        font-size: 0.74rem;
         font-weight: 800;
       }
+      .badge.outline {
+        background: transparent;
+        box-shadow: inset 0 0 0 1px currentColor;
+      }
+      .result-body h4 {
+        margin: 0;
+        font-size: 1.05rem;
+        line-height: 1.35;
+      }
+      .result-card.feature .result-body h4 {
+        font-size: 1.3rem;
+      }
+      .result-body p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+      .stats {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem 1.5rem;
+        margin: 0.2rem 0 0;
+      }
+      .stats div {
+        display: flex;
+        flex-direction: column;
+      }
+      .stats dd {
+        order: -1;
+        margin: 0;
+        color: var(--theme-ink);
+        font-size: 1.45rem;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+      }
+      .stats dt {
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 600;
+      }
+      .result-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.3rem 1rem;
+        margin-top: auto;
+        padding-top: 0.4rem;
+        font-size: 0.88rem;
+        font-weight: 700;
+      }
+      .result-links a {
+        color: var(--theme-ink);
+      }
+      dialog.lightbox {
+        width: min(96vw, 1200px);
+        max-height: 92vh;
+        padding: 0;
+        border: 0;
+        border-radius: 14px;
+        background: #fff;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+      }
+      dialog.lightbox::backdrop {
+        background: rgba(15, 22, 33, 0.72);
+      }
+      .lightbox img {
+        display: block;
+        width: 100%;
+        max-height: calc(92vh - 4.5rem);
+        object-fit: contain;
+      }
+      .lightbox-bar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.7rem 1rem;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 0.85rem;
+      }
+      .lightbox-bar form {
+        margin: 0;
+      }
+      .lightbox-close {
+        padding: 0.35rem 0.8rem;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        color: var(--text);
+        font: inherit;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
       .timeline {
         display: grid;
         gap: 1rem;
@@ -318,6 +576,11 @@
         color: var(--muted);
         font-size: 0.9rem;
       }
+      @media (max-width: 1000px) {
+        .result-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
       @media (max-width: 850px) {
         .hero {
           padding-top: 4.5rem;
@@ -335,6 +598,17 @@
         .timeline-item {
           grid-template-columns: 1fr;
           gap: 0.35rem;
+        }
+        .theme-header,
+        .result-card.feature {
+          grid-template-columns: 1fr;
+        }
+        .theme-header {
+          gap: 0.8rem;
+        }
+        .result-card.feature .result-figure {
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
         }
       }
       @media (max-width: 680px) {
@@ -356,6 +630,9 @@
         .publication {
           grid-template-columns: 1fr;
           gap: 0.25rem;
+        }
+        .result-grid {
+          grid-template-columns: 1fr;
         }
       }
     </style>
@@ -379,17 +656,17 @@
     <div id="top" class="hero">
       <div class="container hero-grid">
         <div>
-          <p class="eyebrow">Computational Chemistry · Molecular Simulation · AI for Science</p>
+          <p class="eyebrow">Separations · CO₂ Capture · Ionic Materials</p>
           <h1>Bo Li</h1>
           <h2>
-            Computational and theoretical chemist developing physics-based and machine-learning
-            approaches for molecular and materials discovery.
+            Computational chemist connecting molecular interactions to separation, reaction, and
+            transport.
           </h2>
           <p class="hero-copy">
-            My research combines quantum chemistry, statistical mechanics, molecular simulation,
-            machine learning, and generative AI to understand and design complex chemical systems,
-            with particular interests in ionic liquids, molten salts, disordered ionic materials,
-            solution thermodynamics, and data-driven molecular discovery.
+            I combine quantum chemistry, statistical mechanics, molecular simulation, and machine
+            learning to explain experimental observations and to identify when a molecular
+            prediction can be trusted, with a focus on rare-earth and f-element separation, reactive
+            CO₂ capture, and ion transport in molten salts and solid electrolytes.
           </p>
           <div class="buttons">
             <a class="button primary" href="#research">Explore my research</a>
@@ -415,22 +692,25 @@
             <p class="eyebrow">About</p>
             <h2>Connecting molecular-scale physics with data-driven discovery.</h2>
             <p>
-              I work across computational chemistry, molecular simulation, and scientific machine
-              learning. My goal is to develop predictive and interpretable computational methods
-              that accelerate the understanding and design of chemically complex systems.
+              Across appointments at Vanderbilt University, Los Alamos National Laboratory, and the
+              University of California, Riverside, I have built models that link coordination,
+              reaction pathways, and collective dynamics to performance, together with the data and
+              AI tools that carry those insights into prospective discovery.
             </p>
           </div>
           <div class="skills">
             <span class="skill">Density Functional Theory</span>
             <span class="skill">Ab Initio Molecular Dynamics</span>
-            <span class="skill">Statistical Mechanics</span>
-            <span class="skill">Machine-Learned Potentials</span>
-            <span class="skill">Generative AI</span>
-            <span class="skill">Molecular Property Prediction</span>
+            <span class="skill">Free-Energy &amp; Enhanced Sampling</span>
+            <span class="skill">Polarizable &amp; Machine-Learned Potentials</span>
+            <span class="skill">DFTB</span>
+            <span class="skill">Generative Models (VAE, Diffusion)</span>
             <span class="skill">CP2K</span>
+            <span class="skill">VASP</span>
+            <span class="skill">LAMMPS</span>
             <span class="skill">DeePMD</span>
             <span class="skill">Chemprop</span>
-            <span class="skill">Python</span>
+            <span class="skill">PyTorch</span>
             <span class="skill">HPC / SLURM</span>
           </div>
         </div>
@@ -439,39 +719,376 @@
         <div class="container">
           <div class="section-heading">
             <p class="eyebrow">Research</p>
-            <h2>Current research directions</h2>
+            <h2>How molecular structure sets separation, capture, and transport</h2>
             <p>
-              My research program centers on three complementary directions that connect fundamental
-              physical chemistry with modern AI.
+              Each direction pairs mechanistic explanation with computational tools and explicit
+              checks on model validity. Select a figure to enlarge it.
             </p>
+            <nav class="theme-nav" aria-label="Research directions">
+              <a class="theme-ree" href="#ree">Rare-earth &amp; f-element separation</a>
+              <a class="theme-co2" href="#co2">CO₂ capture &amp; conversion</a>
+              <a class="theme-ionic" href="#ionic">Ionic systems</a>
+            </nav>
           </div>
-          <div class="grid-3">
-            <article class="card">
-              <span class="tag">Research I</span>
-              <h3>Hybrid ML Potentials for Solution Thermodynamics</h3>
+
+          <div id="ree" class="theme theme-ree">
+            <div class="theme-header">
+              <div>
+                <p class="theme-label">Direction 1 · Coordination chemistry</p>
+                <h3>Rare-earth &amp; f-element separation</h3>
+              </div>
               <p>
-                Combining electronic-structure theory, molecular simulation, and machine learning to
-                predict solvation, reaction, and transport properties in chemically complex liquid
-                environments.
+                Metal separation depends on coupled changes in coordination, solvation, and solution
+                composition. My work connects element-specific selectivity to coordination
+                preferences rather than ionic size alone, and organizes extraction data so chemical
+                trends can be told apart from differences in measurement conditions.
               </p>
-            </article>
-            <article class="card">
-              <span class="tag">Research II</span>
-              <h3>Physics-Informed Universal Potentials</h3>
+            </div>
+            <div class="result-grid">
+              <article class="result-card feature">
+                <!-- image: uploads/reel-quest-*.png (REEL-QUEST screenshots) -->
+                <div class="result-figure">
+                  <div class="glyph" aria-hidden="true">log D</div>
+                </div>
+                <div class="result-body">
+                  <div class="badges">
+                    <span class="badge">In development</span>
+                    <span class="badge outline">Lead developer</span>
+                  </div>
+                  <h4>REEL-QUEST: a condition-resolved rare-earth extraction knowledge base</h4>
+                  <p>
+                    Links extraction performance to ligand structure, reported solution conditions,
+                    and the source evidence behind each record, so measured, calculated, and
+                    inferred quantities stay distinct.
+                  </p>
+                  <dl class="stats">
+                    <div>
+                      <dt>ligands</dt>
+                      <dd>177</dd>
+                    </div>
+                    <div>
+                      <dt>condition-resolved log D values</dt>
+                      <dd>4,326</dd>
+                    </div>
+                  </dl>
+                </div>
+              </article>
+              <article class="result-card">
+                <!-- image: uploads/ree-lanthanide-recognition.png -->
+                <div class="result-figure">
+                  <div class="glyph" aria-hidden="true">Ln³⁺</div>
+                </div>
+                <div class="result-body">
+                  <div class="badges"><span class="badge">J. Am. Chem. Soc. 2024</span></div>
+                  <h4>A “chameleon” ligand that recognizes specific lanthanides</h4>
+                  <p>
+                    Changing the preorganization of an N,O-tetradentate ligand moves its peak
+                    selectivity across light, middle, and heavy lanthanides. I contributed to
+                    explaining how coordination and solvation, not ionic radius alone, set that
+                    selectivity.
+                  </p>
+                  <div class="result-links">
+                    <a href="https://doi.org/10.1021/jacs.4c07332" target="_blank" rel="noopener"
+                      >Paper →</a
+                    >
+                  </div>
+                </div>
+              </article>
+              <article class="result-card">
+                <!-- image: uploads/ree-uranyl-amidoxime.png -->
+                <div class="result-figure">
+                  <div class="glyph" aria-hidden="true">UO₂²⁺</div>
+                </div>
+                <div class="result-body">
+                  <div class="badges"><span class="badge">Dalton Trans. 2018</span></div>
+                  <h4>How amidoxime ligands pull uranium from seawater</h4>
+                  <p>
+                    Free-energy simulations map carbonate displacement from Ca₂UO₂(CO₃)₃, the
+                    dominant uranyl species in seawater: Ca²⁺ eases removal of the first two
+                    carbonates, and chelating diamidoximes are favored.
+                  </p>
+                  <div class="result-links">
+                    <a href="https://doi.org/10.1039/c7dt03412a" target="_blank" rel="noopener"
+                      >Paper →</a
+                    >
+                    <a
+                      href="https://doi.org/10.1021/acs.jpcb.7b04449"
+                      target="_blank"
+                      rel="noopener"
+                      >Salt effects (J. Phys. Chem. B 2017) →</a
+                    >
+                  </div>
+                </div>
+              </article>
+              <article class="result-card">
+                <div class="result-figure">
+                  <div class="glyph" aria-hidden="true">3D-RISM</div>
+                </div>
+                <div class="result-body">
+                  <div class="badges"><span class="badge">J. Phys. Chem. A 2015</span></div>
+                  <h4>Solvation models for actinide chemistry</h4>
+                  <p>
+                    A three-dimensional reference interaction site model combined with DFT describes
+                    uranyl in water; the computed water-exchange barrier agrees well with
+                    experiment.
+                  </p>
+                  <div class="result-links">
+                    <a
+                      href="https://doi.org/10.1021/acs.jpca.5b03712"
+                      target="_blank"
+                      rel="noopener"
+                      >Paper →</a
+                    >
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div id="co2" class="theme theme-co2">
+            <div class="theme-header">
+              <div>
+                <p class="theme-label">Direction 2 · Reaction mechanisms &amp; generative AI</p>
+                <h3>CO₂ capture &amp; conversion</h3>
+              </div>
               <p>
-                Developing transferable machine-learned interatomic potentials for disordered ionic
-                systems, including molten salts, glasses, and solid-state ionic materials.
+                Predicting capture from the stability of a single adduct can miss reactions that
+                change which molecular states are accessible. My mechanistic studies show how proton
+                transfer and rearrangement open pathways beyond the first CO₂ addition, and I use
+                those insights to steer generative AI toward new capture chemistry.
               </p>
-            </article>
-            <article class="card">
-              <span class="tag">Research III</span>
-              <h3>Generative AI for Inverse Molecular Design</h3>
+            </div>
+            <div class="result-grid">
+              <article class="result-card feature">
+                <figure class="result-figure">
+                  <button class="zoom" type="button" aria-label="Enlarge figure">
+                    <img
+                      src="assets/img/research/co2-generative-workflow.svg"
+                      width="1440"
+                      height="470"
+                      loading="lazy"
+                      alt="Workflow: seed carbanions pass through an encoder, a property-guided latent space, and a decoder to give novel candidate carbanions; a CO₂-reactivity surrogate with DFT checks guides the latent space and validated data feed back."
+                    />
+                  </button>
+                  <figcaption>
+                    Workflow schematic. Structures are illustrative examples of seed and generated
+                    carbanions.
+                  </figcaption>
+                </figure>
+                <div class="result-body">
+                  <div class="badges">
+                    <span class="badge">J. Chem. Inf. Model. 2026</span>
+                    <span class="badge outline">Current work</span>
+                  </div>
+                  <h4>Property-guided generative AI discovers CO₂-reactive carbanions</h4>
+                  <p>
+                    A nucleophilicity model trained on Mayr’s reactivity database steers a
+                    hierarchical variational autoencoder toward reactive carbanions. DFT validation
+                    shows where the predictions hold: cyano- and ester-stabilized carbanions.
+                  </p>
+                  <dl class="stats">
+                    <div>
+                      <dt>novel carbanions generated</dt>
+                      <dd>42,513</dd>
+                    </div>
+                    <div>
+                      <dt>chemical validity</dt>
+                      <dd>98%</dd>
+                    </div>
+                  </dl>
+                  <div class="result-links">
+                    <a
+                      href="https://doi.org/10.1021/acs.jcim.6c00680"
+                      target="_blank"
+                      rel="noopener"
+                      >Paper →</a
+                    >
+                  </div>
+                </div>
+              </article>
+              <article class="result-card">
+                <!-- image: uploads/co2-proton-transfer.png -->
+                <div class="result-figure">
+                  <div class="glyph" aria-hidden="true">H⁺ ⇄ CO₂</div>
+                </div>
+                <div class="result-body">
+                  <div class="badges"><span class="badge">J. Phys. Chem. B 2024</span></div>
+                  <h4>
+                    Proton transfer between adducts enables capture by the malononitrile anion
+                  </h4>
+                  <p>
+                    The intramolecular route to the carboxylic acid product is blocked; proton
+                    transfer between two CO₂ adducts is far more accessible.
+                  </p>
+                  <dl class="stats">
+                    <div>
+                      <dt>intermolecular barrier</dt>
+                      <dd>50 kJ/mol</dd>
+                    </div>
+                    <div>
+                      <dt>intramolecular barrier</dt>
+                      <dd>152 kJ/mol</dd>
+                    </div>
+                  </dl>
+                  <div class="result-links">
+                    <a
+                      href="https://doi.org/10.1021/acs.jpcb.4c04482"
+                      target="_blank"
+                      rel="noopener"
+                      >Paper →</a
+                    >
+                  </div>
+                </div>
+              </article>
+              <article class="result-card">
+                <!-- image: uploads/co2-cascade-insertion.png -->
+                <div class="result-figure">
+                  <div class="glyph" aria-hidden="true">2 CO₂</div>
+                </div>
+                <div class="result-body">
+                  <div class="badges"><span class="badge">J. Am. Chem. Soc. 2024</span></div>
+                  <h4>Cascade insertion: two CO₂ molecules per carbanion</h4>
+                  <p>
+                    In carbanion ionic liquids, proton transfer and structural rearrangement after
+                    the first CO₂ create a new binding site, allowing consecutive C–C and O–C bond
+                    formation. I contributed to the computational explanation of this pathway.
+                  </p>
+                  <div class="result-links">
+                    <a href="https://doi.org/10.1021/jacs.4c09933" target="_blank" rel="noopener"
+                      >Paper →</a
+                    >
+                  </div>
+                </div>
+              </article>
+              <article class="result-card">
+                <!-- image: uploads/co2-au-nanocluster.png -->
+                <div class="result-figure">
+                  <div class="glyph" aria-hidden="true">Auₙ</div>
+                </div>
+                <div class="result-body">
+                  <div class="badges"><span class="badge">Chem. Sci. 2025</span></div>
+                  <h4>From capture to conversion: arylated gold nanoclusters</h4>
+                  <p>
+                    Electronic-structure analysis relates the structure of arylated gold
+                    nanoclusters to their CO₂-reduction performance, linking local chemical
+                    environment to a conversion reaction.
+                  </p>
+                  <div class="result-links">
+                    <a href="https://doi.org/10.1039/d5sc01200g" target="_blank" rel="noopener"
+                      >Paper →</a
+                    >
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div id="ionic" class="theme theme-ionic">
+            <div class="theme-header">
+              <div>
+                <p class="theme-label">Direction 3 · Structure, dynamics, transport</p>
+                <h3>Ionic systems: molten salts to solid electrolytes</h3>
+              </div>
               <p>
-                Integrating property prediction, chemical reactivity models, and generative
-                molecular representations to discover molecules with targeted thermodynamic and
-                chemical properties.
+                When long-range order is absent, transport is set by local coordination, network
+                connectivity, and collective dynamics. I have followed this question from molten
+                chlorides for nuclear energy to glassy solid electrolytes for batteries.
               </p>
-            </article>
+            </div>
+            <div class="result-grid">
+              <article class="result-card">
+                <!-- image: uploads/ionic-nacl-ucl3.png -->
+                <div class="result-figure">
+                  <div class="glyph" aria-hidden="true">U–Cl–U</div>
+                </div>
+                <div class="result-body">
+                  <div class="badges"><span class="badge">J. Mol. Liq. 2020</span></div>
+                  <h4>Chloride-bridged uranium networks in molten NaCl–UCl₃</h4>
+                  <p>
+                    Polarizable-ion and first-principles simulations show how rising UCl₃ content
+                    builds Cl-bridged networks of uranium polyhedra with coupled U³⁺/Cl⁻ motion, and
+                    how U(III) and U(IV) differ.
+                  </p>
+                  <div class="result-links">
+                    <a
+                      href="https://doi.org/10.1016/j.molliq.2019.112184"
+                      target="_blank"
+                      rel="noopener"
+                      >Paper →</a
+                    >
+                    <a href="https://doi.org/10.1021/acsaem.8b02157" target="_blank" rel="noopener"
+                      >UCl₃ vs UCl₄ (2019) →</a
+                    >
+                    <a href="https://doi.org/10.1002/cphc.202200078" target="_blank" rel="noopener"
+                      >Adding MgCl₂ (2022) →</a
+                    >
+                  </div>
+                </div>
+              </article>
+              <article class="result-card">
+                <!-- image: uploads/ionic-eu-chlorides.png -->
+                <div class="result-figure">
+                  <div class="glyph" aria-hidden="true">Eu²⁺/Eu³⁺</div>
+                </div>
+                <div class="result-body">
+                  <div class="badges"><span class="badge">Inorg. Chem. 2023</span></div>
+                  <h4>Solvent cations reshape europium coordination in molten chlorides</h4>
+                  <p>
+                    From KCl to CaCl₂, chloride coordination around Eu rises, as confirmed by EXAFS;
+                    a more rigid first shell means slower diffusion. At Los Alamos I also built DFTB
+                    parameters for f-block chlorides, combined with machine learning, for larger
+                    simulations.
+                  </p>
+                  <dl class="stats">
+                    <div>
+                      <dt>Cl⁻ around Eu³⁺, KCl → CaCl₂</dt>
+                      <dd>5.9 → 7.0</dd>
+                    </div>
+                  </dl>
+                  <div class="result-links">
+                    <a
+                      href="https://doi.org/10.1021/acs.inorgchem.2c03982"
+                      target="_blank"
+                      rel="noopener"
+                      >Paper →</a
+                    >
+                  </div>
+                </div>
+              </article>
+              <article class="result-card">
+                <!-- image: uploads/ionic-monkey-bar.png -->
+                <div class="result-figure">
+                  <div class="glyph" aria-hidden="true">Li⁺</div>
+                </div>
+                <div class="result-body">
+                  <div class="badges"><span class="badge">Angew. Chem. Int. Ed. 2024</span></div>
+                  <h4>“Monkey-bar” superionic Li⁺ transport in glassy LiTaCl₆</h4>
+                  <p>
+                    Machine-learning force-field simulations show large-amplitude Cl⁻ vibrations
+                    letting Li⁺ hop by breaking and re-forming Li–Cl bonds. Follow-up work predicts
+                    15.7&nbsp;mS&nbsp;cm⁻¹ for LiNb₀.₅Ta₀.₅Cl₆.
+                  </p>
+                  <dl class="stats">
+                    <div>
+                      <dt>simulated activation energy</dt>
+                      <dd>0.164 eV</dd>
+                    </div>
+                    <div>
+                      <dt>experiment</dt>
+                      <dd>0.165 eV</dd>
+                    </div>
+                  </dl>
+                  <div class="result-links">
+                    <a href="https://doi.org/10.1002/anie.202315628" target="_blank" rel="noopener"
+                      >Paper →</a
+                    >
+                    <a href="https://doi.org/10.1002/adfm.202410509" target="_blank" rel="noopener"
+                      >LiNb₀.₅Ta₀.₅Cl₆ (2024) →</a
+                    >
+                  </div>
+                </div>
+              </article>
+            </div>
           </div>
         </div>
       </section>
@@ -481,8 +1098,8 @@
             <p class="eyebrow">Selected Publications</p>
             <h2>Recent work</h2>
             <p>
-              Representative publications spanning generative AI, reactive CO₂ capture, and
-              machine-learning-enabled molecular simulation.
+              Representative work in CO₂ capture and molecular design, catalytic mechanisms,
+              coordination chemistry, and ionic transport.
             </p>
           </div>
           <div class="publication">
@@ -494,10 +1111,23 @@
                 </a>
               </h3>
               <p>
-                <strong>Bo Li</strong>, De-en Jiang.
-                <em>Journal of Chemical Information and Modeling</em> <strong>2026</strong>, 66 (12),
-                6983–6991. DOI:
-                <a href="https://doi.org/10.1021/acs.jcim.6c00680" target="_blank" rel="noopener">10.1021/acs.jcim.6c00680</a>.
+                <strong>Li, B.</strong>; Jiang, D.-e. <em>J. Chem. Inf. Model.</em>
+                <strong>2026</strong>, 66 (12), 6983–6991.
+              </p>
+            </div>
+          </div>
+          <div class="publication">
+            <div class="pub-year">2025</div>
+            <div>
+              <h3>
+                <a href="https://doi.org/10.1039/d5sc01200g" target="_blank" rel="noopener">
+                  Arylation of Gold Nanoclusters and Insights into Structure-Related CO₂ Reduction
+                  Reaction Performances
+                </a>
+              </h3>
+              <p>
+                Zhu, C.; <strong>Li, B.</strong>; Li, C.; Lu, L.; Li, H.; Yuan, X.; Kang, X.; Jiang,
+                D.-e.; Zhu, M. <em>Chem. Sci.</em> <strong>2025</strong>, 16 (23), 10273–10281.
               </p>
             </div>
           </div>
@@ -510,12 +1140,41 @@
                 </a>
               </h3>
               <p>
-                Liqi Qiu, <strong>Bo Li</strong>, Jianzhi Hu, Arvind Ganesan, Subhamay Pramanik,
-                Joshua T. Damron, Errui Li, De-en Jiang, Shannon M. Mahurin, Ilja Popovs, Carlos
-                Alberto Steren, Juntian Fan, Zhenzhen Yang, Sheng Dai.
-                <em>Journal of the American Chemical Society</em> <strong>2024</strong>, 146 (43),
-                29588–29598. DOI:
-                <a href="https://doi.org/10.1021/jacs.4c09933" target="_blank" rel="noopener">10.1021/jacs.4c09933</a>.
+                Qiu, L.; <strong>Li, B.</strong>; Hu, J.; Ganesan, A.; Pramanik, S.; Damron, J. T.;
+                Li, E.; Jiang, D.-e.; Mahurin, S. M.; Popovs, I.; Steren, C. A.; Fan, J.; Yang, Z.;
+                Dai, S. <em>J. Am. Chem. Soc.</em> <strong>2024</strong>, 146 (43), 29588–29598.
+              </p>
+            </div>
+          </div>
+          <div class="publication">
+            <div class="pub-year">2024</div>
+            <div>
+              <h3>
+                <a href="https://doi.org/10.1021/acs.jpcb.4c04482" target="_blank" rel="noopener">
+                  Intermolecular Proton Transfer Enabled Reactive CO₂ Capture by the Malononitrile
+                  Anion
+                </a>
+              </h3>
+              <p>
+                <strong>Li, B.</strong>; Fu, Y.; Yang, Z.; Dai, S.; Jiang, D.-e.
+                <em>J. Phys. Chem. B</em> <strong>2024</strong>, 128 (41), 10207–10213.
+              </p>
+            </div>
+          </div>
+          <div class="publication">
+            <div class="pub-year">2024</div>
+            <div>
+              <h3>
+                <a href="https://doi.org/10.1021/jacs.4c07332" target="_blank" rel="noopener">
+                  Tetradentate Ligand’s Chameleon-Like Behavior Offers Recognition of Specific
+                  Lanthanides
+                </a>
+              </h3>
+              <p>
+                Pramanik, S.; <strong>Li, B.</strong>; Driscoll, D. M.; Johnson, K. R.; Evans, B.
+                R.; Damron, J. T.; Ivanov, A. S.; Jiang, D.-e.; Einkauf, J.; Popovs, I.;
+                Jansone-Popova, S. <em>J. Am. Chem. Soc.</em> <strong>2024</strong>, 146 (37),
+                25669–25679.
               </p>
             </div>
           </div>
@@ -528,10 +1187,8 @@
                 </a>
               </h3>
               <p>
-                Ming Lei, <strong>Bo Li</strong>, Hongjun Liu, De-en Jiang.
-                <em>Angewandte Chemie International Edition</em> <strong>2024</strong>, 63,
-                e202315628. DOI:
-                <a href="https://doi.org/10.1002/anie.202315628" target="_blank" rel="noopener">10.1002/anie.202315628</a>.
+                Lei, M.; <strong>Li, B.</strong>; Liu, H.; Jiang, D.-e.
+                <em>Angew. Chem. Int. Ed.</em> <strong>2024</strong>, 63 (12), e202315628.
               </p>
             </div>
           </div>
@@ -554,30 +1211,36 @@
           </div>
           <div class="timeline">
             <div class="timeline-item">
-              <div class="timeline-date">2023 – Present</div>
+              <div class="timeline-date">Jan 2023 – Present</div>
               <div>
                 <h3>Research Assistant Professor · Vanderbilt University</h3>
                 <p>
-                  Department of Chemical &amp; Biomolecular Engineering. Computational chemistry,
-                  molecular simulation, machine learning, AI for chemistry, and scientific
-                  computing.
+                  Department of Chemical &amp; Biomolecular Engineering. Electronic structure,
+                  statistical mechanics, and transport in ionic liquids, molten salts, coordination
+                  compounds, and disordered materials; generative molecular design for CO₂ capture,
+                  machine-learned potentials, and the REEL-QUEST knowledge base.
                 </p>
               </div>
             </div>
             <div class="timeline-item">
-              <div class="timeline-date">2020 – 2023</div>
+              <div class="timeline-date">Jan 2020 – Jan 2023</div>
               <div>
-                <h3>Postdoctoral Researcher · Los Alamos National Laboratory</h3>
-                <p>Computational modeling and simulation of chemical and materials systems.</p>
+                <h3>Postdoctoral Research Associate · Los Alamos National Laboratory</h3>
+                <p>
+                  Theoretical Division. Molten-salt and f-element modeling for nuclear energy,
+                  including ab initio molecular dynamics of molten lanthanide chlorides and DFTB
+                  parameters for f-block chlorides combined with machine learning.
+                </p>
               </div>
             </div>
             <div class="timeline-item">
-              <div class="timeline-date">2016 – 2020</div>
+              <div class="timeline-date">Nov 2016 – Jan 2020</div>
               <div>
-                <h3>Postdoctoral Researcher · University of California, Riverside</h3>
+                <h3>Postdoctoral Scholar · University of California, Riverside</h3>
                 <p>
-                  Theoretical and computational chemistry, molecular simulation, and chemical
-                  thermodynamics.
+                  Department of Chemistry. Uranyl–amidoxime binding for seawater uranium extraction
+                  from free-energy simulations; polarizable models of molten salts; DFT and MD for
+                  CO₂ capture and electrocatalysis.
                 </p>
               </div>
             </div>
@@ -585,7 +1248,20 @@
               <div class="timeline-date">Ph.D. 2015</div>
               <div>
                 <h3>Ph.D. in Theoretical Chemistry · Technical University of Munich</h3>
-                <p>Doctoral advisor: Prof. Notker Rösch.</p>
+                <p>
+                  Doctoral advisor: Prof. Notker Rösch. Solvation models for efficient density
+                  functional calculations.
+                </p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">2008 – 2011</div>
+              <div>
+                <h3>Earlier degrees</h3>
+                <p>
+                  M.Eng. in Material Physics and Chemistry, Graduate University of the Chinese
+                  Academy of Sciences (2011); B.Sc. in Geophysics, Peking University (2008).
+                </p>
               </div>
             </div>
           </div>
@@ -597,9 +1273,11 @@
             <p class="eyebrow">Teaching & Mentoring</p>
             <h2>Training students to connect theory, computation, and chemistry.</h2>
             <p>
-              My teaching interests include general chemistry, physical chemistry, computational
-              chemistry, thermodynamics, kinetics, transport, scientific programming, and modern
-              data-driven methods for chemistry and materials science.
+              My teaching interests span chemical engineering thermodynamics, separation processes,
+              and computational methods, as well as molecular thermodynamics, statistical mechanics,
+              materials chemistry, and scientific AI. I have built the computational infrastructure
+              for a molecular simulation course, organized HPC and simulation workshops, and
+              mentored graduate, undergraduate, and high-school researchers.
             </p>
           </div>
           <div class="grid-3">
@@ -613,8 +1291,8 @@
             <article class="card">
               <h3>Chemical Engineering</h3>
               <p>
-                Thermodynamics, kinetics, transport, numerical methods, and computational modeling
-                for chemical systems.
+                Thermodynamics, separation processes, kinetics, transport, numerical methods, and
+                computational modeling for chemical systems.
               </p>
             </article>
             <article class="card">
@@ -645,7 +1323,9 @@
               </div>
               <div>
                 <strong>GitHub</strong><br />
-                <a href="https://github.com/bo-li" target="_blank" rel="noopener">github.com/bo-li</a>
+                <a href="https://github.com/bo-li" target="_blank" rel="noopener"
+                  >github.com/bo-li</a
+                >
               </div>
               <div>
                 <strong>Google Scholar</strong><br />
@@ -669,8 +1349,33 @@
     <footer>
       <div class="container">© <span id="year"></span> Bo Li. Built for GitHub Pages.</div>
     </footer>
+    <dialog id="lightbox" class="lightbox" aria-label="Enlarged figure">
+      <img src="" alt="" />
+      <div class="lightbox-bar">
+        <span class="lightbox-caption"></span>
+        <form method="dialog"><button class="lightbox-close">Close</button></form>
+      </div>
+    </dialog>
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
+
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = lightbox.querySelector("img");
+      const lightboxCaption = lightbox.querySelector(".lightbox-caption");
+      document.querySelectorAll(".zoom").forEach((button) => {
+        button.addEventListener("click", () => {
+          const img = button.querySelector("img");
+          const caption = button.closest("figure").querySelector("figcaption");
+          lightboxImg.src = img.currentSrc || img.src;
+          lightboxImg.alt = img.alt;
+          lightboxCaption.textContent = caption ? caption.textContent.trim() : "";
+          lightbox.showModal();
+        });
+      });
+      // Clicking the backdrop (outside the dialog content) closes it.
+      lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox) lightbox.close();
+      });
     </script>
   </body>
 </html>
