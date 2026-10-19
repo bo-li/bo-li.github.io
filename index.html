@@ -685,6 +685,10 @@
         button.addEventListener("click", () => {
           const img = button.querySelector("img");
           // Thumbnails may be square crops; data-full points at the uncropped figure.
+          // Cap the dialog at 2x the figure's width so small TOC graphics stay sharp.
+          lightboxImg.onload = () => {
+            lightbox.style.width = `min(96vw, 1200px, ${lightboxImg.naturalWidth * 2}px)`;
+          };
           lightboxImg.src = button.dataset.full || img.currentSrc || img.src;
           lightboxImg.alt = img.alt;
           lightboxCaption.textContent = button.dataset.caption || "";
