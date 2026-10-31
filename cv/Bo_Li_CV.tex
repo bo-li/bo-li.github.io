@@ -1,0 +1,215 @@
+% Brief CV of Bo Li. Build with `make` in this folder (needs Tectonic; see README.md).
+\documentclass[10pt]{article}
+
+\usepackage[letterpaper, margin=0.7in, top=0.6in, bottom=0.6in]{geometry}
+\usepackage{fontspec}
+\setmainfont{texgyrepagella}[
+  Extension = .otf,
+  UprightFont = *-regular,
+  BoldFont = *-bold,
+  ItalicFont = *-italic,
+  BoldItalicFont = *-bolditalic,
+]
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{accent}{HTML}{1F3A5F}
+\definecolor{muted}{HTML}{5A5F66}
+
+\hypersetup{
+  pdftitle = {Bo Li -- Curriculum Vitae},
+  pdfauthor = {Bo Li},
+}
+
+\pagestyle{plain}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\linespread{1.03}
+
+\titleformat{\section}{\large\scshape\color{accent}}{}{0pt}{}[\vspace{1pt}\titlerule]
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+
+\setlist[itemize]{leftmargin=1.2em, topsep=2pt, itemsep=1pt, parsep=0pt}
+
+% \entry{Role or degree}{Dates}{Institution or detail}
+\newcommand{\entry}[3]{%
+  \textbf{#1}\hfill{\color{muted}#2}\par
+  #3\par\vspace{3pt}}
+
+% \row{Role or degree}{Institution}{Dates}: a one-line entry
+\newcommand{\row}[3]{\textbf{#1}, #2\hfill{\color{muted}#3}\par\vspace{3pt}}
+
+% \doi{DOI}{Journal}: journal name linked to the paper
+\newcommand{\doi}[2]{\href{https://doi.org/#1}{\emph{#2}}}
+
+% \pub{Citation}
+\newcommand{\pub}[1]{\item #1}
+
+% \dated{Date}{Text}
+\newcommand{\dated}[2]{\item[{\color{muted}#1}] #2}
+
+\newcommand{\me}{\textbf{Li, B.}}
+\newcommand{\co}{CO\textsubscript{2}}
+
+\begin{document}
+
+{\LARGE\textbf{Bo Li}}\hfill{\color{muted}\footnotesize Updated October 2026}\par\vspace{3pt}
+Research Assistant Professor\par
+Department of Chemical and Biomolecular Engineering, Vanderbilt University\par\vspace{2pt}
+{\color{muted}\small
+\href{mailto:bo.li.2@vanderbilt.edu}{bo.li.2@vanderbilt.edu}
+\enspace·\enspace \href{https://bo-li.github.io}{bo-li.github.io}
+\enspace·\enspace ORCID \href{https://orcid.org/0000-0002-2676-926X}{0000-0002-2676-926X}
+\enspace·\enspace \href{https://scholar.google.com/citations?user=g8bfBFUAAAAJ}{Google Scholar}
+\enspace·\enspace \href{https://github.com/bo-li}{GitHub}\par}
+
+\section{Research Interests}
+
+AI-enabled chemical discovery; quantum chemistry, statistical mechanics, and molecular simulation;
+chemical knowledge and coordination equilibria for critical-mineral recovery; generative molecular
+design and reaction networks for reversible \co{} capture; agentic screening and collective
+transport in disordered ionic materials; molecular mechanisms in catalytic conversion;
+interpretable machine learning and adaptive simulation.
+
+\section{Academic Appointments}
+
+\row{Research Assistant Professor}{Chemical and Biomolecular Engineering, Vanderbilt University}
+  {Jan.\ 2023 -- present}
+\row{Postdoctoral Research Associate}{Theoretical Division, Los Alamos National Laboratory}
+  {Jan.\ 2020 -- Jan.\ 2023}
+\row{Postdoctoral Scholar}{Department of Chemistry, University of California, Riverside}
+  {Nov.\ 2016 -- Jan.\ 2020}
+
+\section{Education}
+
+\entry{Ph.D., Theoretical Chemistry}{2015}
+  {Technical University of Munich, Germany. Advisor: Prof.\ Dr.\ Notker Rösch.\\
+  \emph{Computational Modeling of Chemical Systems in Solution: A Microscopic Approach for
+  Efficient Density Functional Calculations with ParaGauss}}
+\row{M.Eng., Material Physics and Chemistry}{Graduate University of Chinese Academy of Sciences, China}
+  {2011}
+\row{B.Sc., Geophysics}{Peking University, China}{2008}
+
+\section{Research Experience}
+
+\entry{Vanderbilt University}{Jan.\ 2023 -- present}{%
+\begin{itemize}
+  \item Lead research connecting electronic structure, intermolecular interactions, statistical
+    mechanics, and transport in ionic liquids, molten salts, coordination compounds, and
+    disordered materials.
+  \item Develop generative molecular design for \co-reactive carbanions and interpretable,
+    data-efficient ML models; integrate ab initio molecular dynamics, polarizable and
+    machine-learned potentials, and enhanced sampling.
+  \item Develop the REEL-QUEST chemical knowledge base and prototype agentic reaction workflows for
+    chemically grounded discovery.
+  \item Collaborate with experimental researchers to interpret spectroscopy, structural
+    characterization, adsorption, and transport measurements.
+\end{itemize}}
+\entry{Los Alamos National Laboratory}{Jan.\ 2020 -- Jan.\ 2023}{%
+\begin{itemize}
+  \item Developed density-functional tight-binding parameters for f-block chlorides and integrated
+    DFTB with machine learning to enable larger molecular dynamics simulations.
+  \item Modeled molten-salt and f-element systems for nuclear energy applications; investigated
+    molten lanthanide chloride structures with ab initio molecular dynamics.
+\end{itemize}}
+\entry{University of California, Riverside}{Nov.\ 2016 -- Jan.\ 2020}{%
+\begin{itemize}
+  \item Investigated uranyl binding with amidoxime ligands using molecular dynamics and enhanced
+    free-energy sampling for seawater uranium extraction.
+  \item Developed polarizable models of molten salts; applied DFT, MD, and QM/MM to \co{} capture
+    and electrocatalysis; contributed to DOE-NEUP proposals and technical reports.
+\end{itemize}}
+
+\section{Selected Publications}
+
+{\color{muted}51 publications and book chapters. Full list on
+\href{https://scholar.google.com/citations?user=g8bfBFUAAAAJ}{Google Scholar}.}
+\begin{enumerate}[leftmargin=1.6em, topsep=3pt, itemsep=2pt, parsep=0pt]
+  \pub{\me; Jiang, D.-e. ``Discovering \co-Reactive Carbanions via Property-Guided Generative
+    AI.'' \doi{10.1021/acs.jcim.6c00680}{J. Chem. Inf. Model.} \textbf{2026}, 66, 6983--6991.}
+  \pub{\me; Fu, Y.; Yang, Z.; Dai, S.; Jiang, D.-e. ``Intermolecular Proton Transfer Enabled
+    Reactive \co{} Capture by the Malononitrile Anion.'' \doi{10.1021/acs.jpcb.4c04482}{J. Phys. Chem. B} \textbf{2024},
+    128, 10207--10213.}
+  \pub{Qiu, L.; \me; Hu, J.; Ganesan, A.; Pramanik, S.; Damron, J. T.; Li, E.; Jiang, D.-e.;
+    Mahurin, S. M.; Popovs, I.; Steren, C. A.; Fan, J.; Yang, Z.; Dai, S. ``Cascade \co{}
+    Insertion in Carbanion Ionic Liquids Driven by Structure Rearrangement.'' \doi{10.1021/jacs.4c09933}{J. Am. Chem.
+    Soc.} \textbf{2024}, 146, 29588--29598.}
+  \pub{Zhu, C.; \me; Li, C.; Lu, L.; Li, H.; Yuan, X.; Kang, X.; Jiang, D.-e.; Zhu, M.
+    ``Arylation of Gold Nanoclusters and Insights into Structure-related \co{} Reduction Reaction
+    Performances.'' \doi{10.1039/d5sc01200g}{Chem. Sci.} \textbf{2025}, 16, 10273--10281.}
+  \pub{Pramanik, S.; \me; Driscoll, D. M.; Johnson, K. R.; Evans, B. R.; Damron, J. T.; Ivanov,
+    A. S.; Jiang, D.-e.; Einkauf, J.; Popovs, I.; Jansone-Popova, S. ``Tetradentate Ligand's
+    Chameleon-Like Behavior Offers Recognition of Specific Lanthanides.'' \doi{10.1021/jacs.4c07332}{J. Am. Chem. Soc.}
+    \textbf{2024}, 146, 25669--25679.}
+  \pub{Lei, M.; \me; Liu, H.; Jiang, D.-e. ``Dynamic Monkey Bar Mechanism of Superionic Li-ion
+    Transport in LiTaCl\textsubscript{6}.'' \doi{10.1002/anie.202315628}{Angew. Chem. Int. Ed.} \textbf{2024}, 63,
+    e202315628.}
+\end{enumerate}
+
+\section{Teaching and Mentorship}
+
+\begin{itemize}
+  \item Developed and deployed computational infrastructure for a molecular simulation course for
+    senior undergraduate and graduate students.
+  \item Organized high-performance computing and molecular simulation workshops for chemistry
+    students.
+  \item Mentored graduate, undergraduate, and high-school researchers in computational chemistry,
+    molecular simulation, and scientific programming.
+  \item Teaching interests: general and physical chemistry; quantum chemistry, statistical
+    mechanics, molecular thermodynamics and simulation; materials chemistry and scientific AI.
+\end{itemize}
+
+\section{Funding and Proposal Experience}
+
+Contributed computational strategy, technical sections, simulation plans, and HPC justification to
+multi-investigator proposals supported by DOE Basic Energy Sciences and DOE Nuclear Energy,
+including NEUP. Experience developing research concepts, revising proposals, and responding to
+reviewer feedback.
+
+\section{Presentations}
+
+\begin{itemize}[leftmargin=5.4em, labelwidth=4.6em, labelsep=0.8em, align=left]
+  \dated{Feb.\ 2024}{Poster, Gordon Research Conference on Atomically Precise Nanochemistry,
+    Galveston, TX.}
+  \dated{Oct.\ 2023}{Invited talk, Materials Science \& Technology Conference, Columbus, OH.}
+  \dated{Feb.\ 2023}{Poster, Theory Frontiers in Actinide Science: Chemistry \& Materials, Santa
+    Fe, NM.}
+  \dated{Jul.\ 2022}{Poster, 19th Chinese-American Kavli Frontiers of Science Symposium, Irvine,
+    CA.}
+  \dated{Feb.\ 2020}{Oral, International Workshop on Theory Frontiers in Actinide Sciences, Santa
+    Fe, NM.}
+  \dated{Aug.\ 2019}{Oral, ACS Fall National Meeting, San Diego, CA.}
+  \dated{Jun.\ 2019}{Oral, ANS Annual Meeting, Minneapolis, MN.}
+  \dated{May 2015}{Poster, Bunsentagung, Bochum, Germany.}
+  \dated{Mar.\ 2014}{Oral, TUM-A*STAR Workshop on Computational Catalysis, Garching, Germany.}
+\end{itemize}
+
+\section{Professional Service}
+
+Journal reviewer: \emph{Journal of Materials Chemistry C}, \emph{The Journal of Physical
+Chemistry}, \emph{Dalton Transactions}, \emph{Nanoscale}, \emph{Small Methods}, \emph{ACS Applied
+Energy Materials}, \emph{Applied Surface Science}, \emph{Journal of Molecular Liquids},
+\emph{Advanced Science}, \emph{Chemical Engineering Journal}, \emph{Journal of Solution
+Chemistry}, and \emph{Microporous and Mesoporous Materials}.\par\vspace{3pt}
+Reviewer of high-performance computing allocation proposals at Los Alamos National Laboratory.
+Member of the American Chemical Society, American Nuclear Society, and American Ceramic Society.
+
+\section{Honors and Awards}
+
+TUM International Graduate School of Science and Engineering Scholarship (2012); NIMTE Outstanding
+Student Scholarship (2010); CAS Graduate Student National Scholarship (2008).
+
+\section{Computational Expertise}
+
+\textbf{Electronic structure and simulation:} CP2K, VASP, Quantum ESPRESSO, DFTB+, ORCA, LAMMPS,
+GROMACS, AMBER.\par\vspace{2pt}
+\textbf{Machine learning:} PyTorch, TensorFlow, scikit-learn, Chemprop, Gaussian process regression,
+neural-network potentials, symbolic regression, diffusion models, and variational
+autoencoders.\par\vspace{2pt}
+\textbf{Programming and HPC:} Python (NumPy, SciPy, Pandas, ASE), Fortran, C/C++, Bash, MPI, CUDA,
+SLURM/PBS, Linux.
+
+\end{document}
